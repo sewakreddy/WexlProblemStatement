@@ -1,5 +1,6 @@
 package com.example.restservice;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
@@ -12,10 +13,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
+@RequiredArgsConstructor
 public class RandomUserController {
 
-    @Autowired
-    RestTemplate restTemplate;
+
+    private  final RestTemplate restTemplate;
 
     @Autowired
     RandomUserService randomUserService;

@@ -1,5 +1,8 @@
 package com.example.restservice;
 
+import lombok.Builder;
+
+@Builder
 public class Name {
 
     private String title;

@@ -21,6 +21,10 @@ public class RandomUserService {
     @Autowired
     RestTemplate restTemplate;
 
+    public RandomUserService(RestTemplate restTemplate){
+        this.restTemplate = restTemplate;
+    }
+
     public Data getAnyData(){
         ResponseEntity<Data> response = restTemplate.exchange(
                 "https://randomuser.me/api/?format=json",

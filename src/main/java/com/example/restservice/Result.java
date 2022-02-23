@@ -1,5 +1,8 @@
 package com.example.restservice;
 
+import lombok.Builder;
+
+@Builder
 public class Result {
     private String gender;
     private Name name;
