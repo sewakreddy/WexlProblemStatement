@@ -1,9 +1,14 @@
-package com.example.restservice;
+package com.project.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Result {
+
     private String gender;
     private Name name;
     private Location location;

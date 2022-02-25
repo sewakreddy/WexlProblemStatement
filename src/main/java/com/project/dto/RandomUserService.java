@@ -1,5 +1,8 @@
-package com.example.restservice;
+package com.project.dto;
 
+import com.project.model.AddressRepository;
+import com.project.model.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -16,12 +19,19 @@ import java.util.List;
 import java.util.Map;
 
 @Service
+@RequiredArgsConstructor
 public class RandomUserService {
 
     @Autowired
     RestTemplate restTemplate;
 
-    public RandomUserService(RestTemplate restTemplate){
+    @Autowired
+    UserRepository userRepository;
+
+    @Autowired
+    AddressRepository addressRepository;
+
+    public RandomUserService(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
 
@@ -32,7 +42,13 @@ public class RandomUserService {
                 null,
                 new ParameterizedTypeReference<Data>() {
                 });
-        return response.getBody();
+
+        Data responseData = response.getBody();
+
+        userRepository.save(responseData.toUserEntity());
+        addressRepository.save(responseData.toAddressEntity());
+
+        return responseData;
     }
 
     public Data getFemaleUserData(String string){
@@ -52,7 +68,12 @@ public class RandomUserService {
         ResponseEntity<Data> response = restTemplate.exchange(urlTemplate
                 , HttpMethod.GET,null ,Data.class);
 
-        return response.getBody();
+        Data responseData = response.getBody();
+
+        userRepository.save(responseData.toUserEntity());
+        addressRepository.save(responseData.toAddressEntity());
+
+        return responseData;
     }
 
     public Data getWexlFemaleUserData(String string){
@@ -83,6 +104,9 @@ public class RandomUserService {
 
         newName.setFirst(newFirst);
         newName.setLast(newLast);
+
+        userRepository.save(resultData.toUserEntity());
+        addressRepository.save(resultData.toAddressEntity());
 
         return resultData;
     }

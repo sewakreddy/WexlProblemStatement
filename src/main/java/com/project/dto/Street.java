@@ -1,6 +1,4 @@
-package com.example.restservice;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+package com.project.dto;
 
 public class Street {
 

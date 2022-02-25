@@ -1,13 +1,14 @@
-package com.example.restservice;
-
+package com.project.dto;
 
 public class Location {
+
+    private Coordinates coordinates;
+
     private Street street;
     private String city;
     private String state;
     private String country;
     private String postcode;
-    private Coordinates coordinates;
     private Timezone timezone;
 
     public Street getStreet() {

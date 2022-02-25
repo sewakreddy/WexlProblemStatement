@@ -1,8 +1,9 @@
-package com.example.restservice;
+package com.project.dto;
 
 public class Id {
 
     private String name;
+
     private String value;
 
     public String getName() {

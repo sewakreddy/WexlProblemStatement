@@ -1,4 +1,4 @@
-package com.example.restservice;
+package com.project.dto;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 

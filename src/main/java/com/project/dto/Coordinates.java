@@ -1,6 +1,7 @@
-package com.example.restservice;
+package com.project.dto;
 
 public class Coordinates {
+
     private String latitude;
     private String longitude;
 

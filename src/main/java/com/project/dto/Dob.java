@@ -1,7 +1,6 @@
-package com.example.restservice;
+package com.project.dto;
 
-public class
-Dob {
+public class Dob {
 
     private String date;
     private int age;
